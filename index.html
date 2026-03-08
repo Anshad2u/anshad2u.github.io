@@ -1,9 +1,728 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>anshad.is-a.dev</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Anshad | Data Engineer & BI Analyst</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --accent-cyan: #00f0ff;
+            --accent-purple: #a855f7;
+            --accent-pink: #ff0080;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-glow-1 {
+            top: -200px;
+            right: -200px;
+            background: var(--accent-cyan);
+        }
+        
+        .bg-glow-2 {
+            bottom: -200px;
+            left: -200px;
+            background: var(--accent-purple);
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 0;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 50%, var(--accent-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .stat-item h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+        
+        .stat-item p {
+            color: var(--text-muted);
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+        }
+        
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Certifications */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .cert-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(168, 85, 247, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .cert-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .cert-card span {
+            font-size: 0.8rem;
+            color: var(--accent-purple);
+        }
+        
+        /* Contact */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            transform: translateX(5px);
+            background: var(--bg-secondary);
+        }
+        
+        .contact-link span {
+            color: var(--text-muted);
+        }
+        
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--text-muted);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to anshad.is-a.dev</h1>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MA</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#certs">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Available for projects</span>
+                </div>
+                <h1>Hello, I'm <span class="gradient">Mohammed Anshad</span></h1>
+                <p class="hero-subtitle">Data Engineer & Business Intelligence Analyst</p>
+                <p class="hero-description">
+                    Transforming complex data into actionable insights. 
+                    I build futuristic dashboards, analytics platforms, and data-driven solutions 
+                    that empower businesses to make smarter decisions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Let's Talk →</a>
+                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>30+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>Expertise in modern data analytics and visualization technologies</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Power BI</h3>
+                    <p>Advanced data modeling, DAX calculations, interactive dashboards, and enterprise reporting solutions.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📈</div>
+                    <h3>Data Analytics</h3>
+                    <p>Statistical analysis, data visualization, trend identification, and actionable business insights.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Dashboard Development</h3>
+                    <p>Custom KPI tracking, real-time monitoring dashboards, and automated reporting systems.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>Modern websites and web applications using cutting-edge technologies and frameworks.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Data Engineering</h3>
+                    <p>ETL pipelines, data warehousing, database optimization, and data architecture design.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>Automation</h3>
+                    <p>Workflow automation, script development, and process optimization for efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Do</h2>
+                <p>End-to-end data solutions tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Power BI Dashboards</h3>
+                    <p>Custom interactive dashboards that transform your raw data into visual stories. From simple reports to complex enterprise solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Analytics</h3>
+                    <p>Deep-dive analysis into your business data to uncover patterns, trends, and opportunities for growth.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Custom Web Applications</h3>
+                    <p>Modern, responsive websites and web applications built with the latest technologies.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Architecture</h3>
+                    <p>Design and implementation of scalable data systems, ETL processes, and database solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="certs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Certifications</h2>
+                <p>Industry-recognized credentials validating my expertise</p>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🏆</div>
+                    <div>
+                        <h4>Microsoft Certified: Power BI Data Analyst</h4>
+                        <span>Microsoft</span>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">📜</div>
+                    <div>
+                        <h4>Data Analyst Professional Certificate</h4>
+                        <span>Industry Standard</span>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🌐</div>
+                    <div>
+                        <h4>Web Development Certification</h4>
+                        <span>Technical Institute</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>Have a project in mind? I'd love to hear about it. Let's discuss how we can transform your data into powerful insights.</p>
+                    <div class="contact-links">
+                        <a href="mailto:anshad@example.com" class="contact-link">
+                            <span>📧</span> anshad@example.com
+                        </a>
+                        <a href="https://linkedin.com" class="contact-link" target="_blank">
+                            <span>💼</span> LinkedIn Profile
+                        </a>
+                        <a href="https://github.com/Anshad2u" class="contact-link" target="_blank">
+                            <span>🐙</span> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2026 Mohammed Anshad. Built with passion for data.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                header.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
+        });
+    </script>
 </body>
 </html>
