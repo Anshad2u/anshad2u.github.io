@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammed Anshad K | Data Analyst & AI Automation Specialist</title>
-  <meta name="description" content="Personal website of Muhammed Anshad K — Microsoft Certified Data Analyst, AI Automation Specialist, and Planning Engineer.">
+  <title>Muhammed Anshad | Data Analyst & Planning Engineer</title>
+  <meta name="description" content="Personal website of Muhammed Anshad — Microsoft Certified Data Analyst and Planning Engineer.">
   <style>
     :root {
       --bg: #070b16;
@@ -87,7 +87,8 @@
     .profile-card::before { content: ""; position: absolute; inset: -2px; background: radial-gradient(circle at 20% 0%, rgba(67, 181, 255, 0.35), transparent 32%), radial-gradient(circle at 90% 20%, rgba(34, 197, 94, 0.24), transparent 34%); z-index: -1; }
     .profile-top { display: grid; gap: 18px; padding: 16px; border-radius: 26px; background: rgba(255, 255, 255, 0.065); border: 1px solid rgba(255, 255, 255, 0.1); }
     .avatar-wrap { display: grid; place-items: center; width: 210px; height: 210px; margin: 0 auto; border-radius: 50%; padding: 8px; background: linear-gradient(135deg, var(--primary), var(--primary-2), var(--accent)); box-shadow: 0 22px 60px rgba(0,0,0,0.36); }
-    .avatar { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 5px solid rgba(7, 11, 22, 0.92); background: #111827; }
+    .avatar, .avatar-bulb { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 5px solid rgba(7, 11, 22, 0.92); background: #111827; }
+    .avatar-bulb { width: 78%; height: 78%; border: 0; background: transparent; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.35)); }
     .profile-info { text-align: center; }
     .profile-info h2 { font-size: 1.6rem; letter-spacing: -0.04em; }
     .profile-info p { margin-top: 8px; color: var(--muted); line-height: 1.55; }
@@ -163,7 +164,7 @@
     <header class="topbar">
       <a class="brand" href="#top" aria-label="Home">
         <span class="brand-mark">A</span>
-        <span>Anshad</span>
+        <span>Muhammed Anshad</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="#about">About</a>
@@ -178,7 +179,7 @@
       <section class="hero">
         <div>
           <div class="eyebrow reveal"><span class="pulse"></span>LinkedIn profile website</div>
-          <h1 class="reveal"><span class="gradient-text">Muhammed Anshad K</span></h1>
+          <h1 class="reveal"><span class="gradient-text">Muhammed Anshad</span></h1>
           <p class="hero-copy reveal">Microsoft Certified Data Analyst, AI Automation Specialist, and Planning Engineer transforming raw data into smarter business decisions across manufacturing, construction, and enterprise operations.</p>
           <div class="hero-actions reveal">
             <a class="button primary" href="https://www.linkedin.com/in/anshad2u/" target="_blank" rel="noopener">
@@ -193,16 +194,36 @@
         <aside class="profile-card reveal" aria-label="LinkedIn profile summary">
           <div class="profile-top">
             <div class="avatar-wrap">
-              <img class="avatar" src="https://media.licdn.com/dms/image/v2/C4E03AQHMm_kT6qKyQg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1641277509736?e=1778112000&v=beta&t=PyLFxptSQ3xTf_FaTz88sw_xUqgSf9AxIusGn4e9DTw" alt="Muhammed Anshad K">
+              <svg class="avatar-bulb" viewBox="0 0 220 220" role="img" aria-label="Muhammed Anshad profile bulb icon">
+                <defs>
+                  <linearGradient id="bulbGlow" x1="35" y1="20" x2="180" y2="205" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#fff7ad"/>
+                    <stop offset="0.42" stop-color="#facc15"/>
+                    <stop offset="1" stop-color="#fb923c"/>
+                  </linearGradient>
+                  <linearGradient id="bulbGlass" x1="55" y1="35" x2="165" y2="150" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#ffffff"/>
+                    <stop offset="1" stop-color="#fde68a"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="110" cy="110" r="98" fill="rgba(255,255,255,0.10)"/>
+                <path d="M110 26c-34.8 0-63 27.1-63 60.6 0 22.4 12.7 39.1 24.8 51.6 8.1 8.4 13.2 19.7 13.2 31.7V178c0 10.5 8.5 19 19 19h12c10.5 0 19-8.5 19-19v-8.1c0-12 5.1-23.3 13.2-31.7 12.1-12.5 24.8-29.2 24.8-51.6C173 53.1 144.8 26 110 26Z" fill="url(#bulbGlass)" opacity="0.95"/>
+                <path d="M74 179h72v8c0 5.5-4.5 10-10 10H84c-5.5 0-10-4.5-10-10v-8Z" fill="#64748b"/>
+                <path d="M66 197h88v7c0 4.4-3.6 8-8 8H74c-4.4 0-8-3.6-8-8v-7Z" fill="#475569"/>
+                <path d="M110 58c-20.4 0-37 16.6-37 37 0 13.1 6.9 23.2 14.3 30.8 4.8 5 7.8 11.8 7.8 19v10.4h29.8v-10.4c0-7.2 3-14 7.8-19 7.4-7.6 14.3-17.7 14.3-30.8 0-20.4-16.6-37-37-37Z" fill="url(#bulbGlow)"/>
+                <path d="M95 101c9.2-12.4 21.9-15.3 36.2-8.4-3.4 15.9-16.6 23.7-36.2 8.4Z" fill="#fff7ed" opacity="0.85"/>
+                <circle cx="91" cy="83" r="9" fill="#fff7ed" opacity="0.95"/>
+                <path d="M131 75c10.1 3.2 16.4 11.2 16.4 22" stroke="#fff7ed" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+              </svg>
             </div>
             <div class="profile-info">
               <h2>Microsoft Certified Data Analyst</h2>
               <p>AI Automation Specialist · Business Intelligence · Planning Engineering</p>
             </div>
             <div class="profile-meta">
-              <div class="metric"><strong>6+</strong><span>Years Exp</span></div>
+              <div class="metric"><strong>9+</strong><span>Years Exp</span></div>
               <div class="metric"><strong>60+</strong><span>Projects</span></div>
-              <div class="metric"><strong>90%+</strong><span>AI Efficiency</span></div>
+              <div class="metric"><strong>BI</strong><span>Analytics</span></div>
             </div>
           </div>
         </aside>
@@ -284,7 +305,7 @@
         </div>
       </section>
     </main>
-    <footer>© 2026 Muhammed Anshad K. Built from the LinkedIn profile and resume content.</footer>
+    <footer>© 2026 Muhammed Anshad. Built from the LinkedIn profile and resume content.</footer>
   </div>
   <script>
     const revealItems = document.querySelectorAll('.reveal');
